@@ -1,0 +1,7 @@
+local user_variables =
+   {
+      city = "US/IL/Chicago",           -- City where the data should com from
+      wu_api_key = "xxxxxxxxxxxxxxxx",  -- Your own api.wunderground.com key
+   }
+
+return user_variables
