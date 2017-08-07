@@ -9,7 +9,6 @@ local os = require("os")
 local localsettings = require("lib.sunbar.localsettings")   -- sunbar located in ~/.config/awesome/lib 
 local city = localsettings.city
 local wu_api_key = localsettings.wu_api_key
-local path_to_icons = "/home/mike/Projects/sunbar/icons/"
 
 -- Set up timeouts for each process
 local sun_get = timer({ timeout = 1200 })
