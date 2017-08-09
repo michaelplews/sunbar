@@ -1,4 +1,5 @@
 local beautiful = require("beautiful")
+local naughty = require("naughty")
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
@@ -89,3 +90,22 @@ end)
 
 sun_calculate:start()
 sun_calculate:emit_signal("timeout")
+
+-- Tell me the time via popup on mouse hover
+local notification
+sunbar_widget:connect_signal("mouse::enter", function()
+                                percentage = ("%.2g"):format(day_value*100)
+                             notification = naughty.notify{
+                                text =
+                                   '<big>' .. os.date('%H:%M') .. '</big> (' .. percentage .. '%)<br>' ..
+                                   '<b>Sunrise:</b> ' .. sunrise_hour .. ':' .. sunrise_minute .. '<br>' ..
+                                   '<b>Sunset:</b> ' .. sunset_hour .. ':' .. sunset_minute,
+                                timeout = 5,
+                                hover_timeout = 10,
+                                -- width = 150,
+                                position = center
+                             }
+end)
+sunbar_widget:connect_signal("mouse::leave", function()
+                                naughty.destroy(notification)
+end)

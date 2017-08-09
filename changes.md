@@ -1,3 +1,3 @@
-Removed absolute paths
+Added time on mouse_over. Closes #1 
 
- - [BUG] Removed absolute paths
+ - [FEATURE] Added rise and set info on hover
